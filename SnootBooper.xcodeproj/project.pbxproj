@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD1BE3162B26AC1300F302A3 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1BE3152B26AC1300F302A3 /* BluetoothManager.swift */; };
+		DD81DC5E2B23A08400EBF40A /* Dalmatian.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */; };
+		DD8C5EC52B10020A001E74BD /* BoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC42B10020A001E74BD /* BoopApp.swift */; };
+		DD8C5EC72B10020A001E74BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC62B10020A001E74BD /* ContentView.swift */; };
+		DD8C5EC92B10020C001E74BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8C5EC82B10020C001E74BD /* Assets.xcassets */; };
+		DD8C5ECC2B10020C001E74BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8C5ECB2B10020C001E74BD /* Preview Assets.xcassets */; };
+		DD8C5ED62B10020C001E74BD /* BoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5ED52B10020C001E74BD /* BoopTests.swift */; };
+		DD8C5EE02B10020C001E74BD /* BoopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EDF2B10020C001E74BD /* BoopUITests.swift */; };
+		DD8C5EE22B10020C001E74BD /* BoopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EE12B10020C001E74BD /* BoopUITestsLaunchTests.swift */; };
+		DD8C5EEF2B1130C4001E74BD /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EEE2B1130C4001E74BD /* DropDownMenu.swift */; };
+		DDBDC7202B191FB100CF6591 /* BackgroundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBDC71F2B191FB100CF6591 /* BackgroundPicker.swift */; };
+		DDCCABA72B1D40E800C79823 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCCABA62B1D40E800C79823 /* Dog.swift */; };
+		DDCCABB42B1E8D4E00C79823 /* FloatingHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCCABB32B1E8D4E00C79823 /* FloatingHeart.swift */; };
+		DDCCABB62B1FC5DF00C79823 /* Fog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCCABB52B1FC5DF00C79823 /* Fog.swift */; };
+		DDD08DB02B2FACD500796A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD08DAF2B2FACD500796A41 /* LaunchScreen.storyboard */; };
+		DDD08DB22B2FBC7C00796A41 /* AnimatedLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD08DB12B2FBC7C00796A41 /* AnimatedLaunchScreen.swift */; };
+		DDFF02F02B2B689A00A36358 /* Greyhound.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DDFF02EF2B2B689A00A36358 /* Greyhound.usdz */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD8C5ED22B10020C001E74BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8C5EB92B10020A001E74BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD8C5EC02B10020A001E74BD;
+			remoteInfo = Boop;
+		};
+		DD8C5EDC2B10020C001E74BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8C5EB92B10020A001E74BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD8C5EC02B10020A001E74BD;
+			remoteInfo = Boop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD1BE3152B26AC1300F302A3 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		DD1BE31C2B27D30300F302A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Dalmatian.usdz; sourceTree = "<group>"; };
+		DD8C5EC12B10020A001E74BD /* SnootBooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnootBooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8C5EC42B10020A001E74BD /* BoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoopApp.swift; sourceTree = "<group>"; };
+		DD8C5EC62B10020A001E74BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DD8C5EC82B10020C001E74BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD8C5ECB2B10020C001E74BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DD8C5ED12B10020C001E74BD /* SnootBooperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnootBooperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8C5ED52B10020C001E74BD /* BoopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoopTests.swift; sourceTree = "<group>"; };
+		DD8C5EDB2B10020C001E74BD /* SnootBooperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnootBooperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8C5EDF2B10020C001E74BD /* BoopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoopUITests.swift; sourceTree = "<group>"; };
+		DD8C5EE12B10020C001E74BD /* BoopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoopUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DD8C5EEE2B1130C4001E74BD /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
+		DDBDC71F2B191FB100CF6591 /* BackgroundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPicker.swift; sourceTree = "<group>"; };
+		DDCCABA62B1D40E800C79823 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		DDCCABB32B1E8D4E00C79823 /* FloatingHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingHeart.swift; sourceTree = "<group>"; };
+		DDCCABB52B1FC5DF00C79823 /* Fog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fog.swift; sourceTree = "<group>"; };
+		DDD08DAF2B2FACD500796A41 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DDD08DB12B2FBC7C00796A41 /* AnimatedLaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLaunchScreen.swift; sourceTree = "<group>"; };
+		DDFF02EF2B2B689A00A36358 /* Greyhound.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Greyhound.usdz; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD8C5EBE2B10020A001E74BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8C5ECE2B10020C001E74BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8C5ED82B10020C001E74BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD8C5EB82B10020A001E74BD = {
+			isa = PBXGroup;
+			children = (
+				DD8C5EC32B10020A001E74BD /* Boop */,
+				DD8C5ED42B10020C001E74BD /* BoopTests */,
+				DD8C5EDE2B10020C001E74BD /* BoopUITests */,
+				DD8C5EC22B10020A001E74BD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD8C5EC22B10020A001E74BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD8C5EC12B10020A001E74BD /* SnootBooper.app */,
+				DD8C5ED12B10020C001E74BD /* SnootBooperTests.xctest */,
+				DD8C5EDB2B10020C001E74BD /* SnootBooperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD8C5EC32B10020A001E74BD /* Boop */ = {
+			isa = PBXGroup;
+			children = (
+				DDD08DB12B2FBC7C00796A41 /* AnimatedLaunchScreen.swift */,
+				DDD08DAF2B2FACD500796A41 /* LaunchScreen.storyboard */,
+				DDCCABAA2B1D4AD900C79823 /* Dogs */,
+				DD8C5EC42B10020A001E74BD /* BoopApp.swift */,
+				DD8C5EC62B10020A001E74BD /* ContentView.swift */,
+				DD8C5EC82B10020C001E74BD /* Assets.xcassets */,
+				DD8C5ECA2B10020C001E74BD /* Preview Content */,
+				DD8C5EEE2B1130C4001E74BD /* DropDownMenu.swift */,
+				DDBDC71F2B191FB100CF6591 /* BackgroundPicker.swift */,
+				DDCCABB32B1E8D4E00C79823 /* FloatingHeart.swift */,
+				DDCCABA62B1D40E800C79823 /* Dog.swift */,
+				DDCCABB52B1FC5DF00C79823 /* Fog.swift */,
+				DD1BE3152B26AC1300F302A3 /* BluetoothManager.swift */,
+				DD1BE31C2B27D30300F302A3 /* Info.plist */,
+			);
+			path = Boop;
+			sourceTree = "<group>";
+		};
+		DD8C5ECA2B10020C001E74BD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DD8C5ECB2B10020C001E74BD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DD8C5ED42B10020C001E74BD /* BoopTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD8C5ED52B10020C001E74BD /* BoopTests.swift */,
+			);
+			path = BoopTests;
+			sourceTree = "<group>";
+		};
+		DD8C5EDE2B10020C001E74BD /* BoopUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD8C5EDF2B10020C001E74BD /* BoopUITests.swift */,
+				DD8C5EE12B10020C001E74BD /* BoopUITestsLaunchTests.swift */,
+			);
+			path = BoopUITests;
+			sourceTree = "<group>";
+		};
+		DDCCABAA2B1D4AD900C79823 /* Dogs */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF02EF2B2B689A00A36358 /* Greyhound.usdz */,
+				DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */,
+			);
+			path = Dogs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD8C5EC02B10020A001E74BD /* SnootBooper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD8C5EE52B10020C001E74BD /* Build configuration list for PBXNativeTarget "SnootBooper" */;
+			buildPhases = (
+				DD8C5EBD2B10020A001E74BD /* Sources */,
+				DD8C5EBE2B10020A001E74BD /* Frameworks */,
+				DD8C5EBF2B10020A001E74BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnootBooper;
+			productName = Boop;
+			productReference = DD8C5EC12B10020A001E74BD /* SnootBooper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD8C5ED02B10020C001E74BD /* SnootBooperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD8C5EE82B10020C001E74BD /* Build configuration list for PBXNativeTarget "SnootBooperTests" */;
+			buildPhases = (
+				DD8C5ECD2B10020C001E74BD /* Sources */,
+				DD8C5ECE2B10020C001E74BD /* Frameworks */,
+				DD8C5ECF2B10020C001E74BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD8C5ED32B10020C001E74BD /* PBXTargetDependency */,
+			);
+			name = SnootBooperTests;
+			productName = BoopTests;
+			productReference = DD8C5ED12B10020C001E74BD /* SnootBooperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD8C5EDA2B10020C001E74BD /* SnootBooperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD8C5EEB2B10020C001E74BD /* Build configuration list for PBXNativeTarget "SnootBooperUITests" */;
+			buildPhases = (
+				DD8C5ED72B10020C001E74BD /* Sources */,
+				DD8C5ED82B10020C001E74BD /* Frameworks */,
+				DD8C5ED92B10020C001E74BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD8C5EDD2B10020C001E74BD /* PBXTargetDependency */,
+			);
+			name = SnootBooperUITests;
+			productName = BoopUITests;
+			productReference = DD8C5EDB2B10020C001E74BD /* SnootBooperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD8C5EB92B10020A001E74BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					DD8C5EC02B10020A001E74BD = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					DD8C5ED02B10020C001E74BD = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DD8C5EC02B10020A001E74BD;
+					};
+					DD8C5EDA2B10020C001E74BD = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DD8C5EC02B10020A001E74BD;
+					};
+				};
+			};
+			buildConfigurationList = DD8C5EBC2B10020A001E74BD /* Build configuration list for PBXProject "SnootBooper" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD8C5EB82B10020A001E74BD;
+			productRefGroup = DD8C5EC22B10020A001E74BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD8C5EC02B10020A001E74BD /* SnootBooper */,
+				DD8C5ED02B10020C001E74BD /* SnootBooperTests */,
+				DD8C5EDA2B10020C001E74BD /* SnootBooperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD8C5EBF2B10020A001E74BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDFF02F02B2B689A00A36358 /* Greyhound.usdz in Resources */,
+				DD81DC5E2B23A08400EBF40A /* Dalmatian.usdz in Resources */,
+				DD8C5ECC2B10020C001E74BD /* Preview Assets.xcassets in Resources */,
+				DDD08DB02B2FACD500796A41 /* LaunchScreen.storyboard in Resources */,
+				DD8C5EC92B10020C001E74BD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8C5ECF2B10020C001E74BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8C5ED92B10020C001E74BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD8C5EBD2B10020A001E74BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8C5EC72B10020A001E74BD /* ContentView.swift in Sources */,
+				DD8C5EC52B10020A001E74BD /* BoopApp.swift in Sources */,
+				DD1BE3162B26AC1300F302A3 /* BluetoothManager.swift in Sources */,
+				DDD08DB22B2FBC7C00796A41 /* AnimatedLaunchScreen.swift in Sources */,
+				DDCCABB62B1FC5DF00C79823 /* Fog.swift in Sources */,
+				DD8C5EEF2B1130C4001E74BD /* DropDownMenu.swift in Sources */,
+				DDCCABA72B1D40E800C79823 /* Dog.swift in Sources */,
+				DDCCABB42B1E8D4E00C79823 /* FloatingHeart.swift in Sources */,
+				DDBDC7202B191FB100CF6591 /* BackgroundPicker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8C5ECD2B10020C001E74BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8C5ED62B10020C001E74BD /* BoopTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8C5ED72B10020C001E74BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8C5EE22B10020C001E74BD /* BoopUITestsLaunchTests.swift in Sources */,
+				DD8C5EE02B10020C001E74BD /* BoopUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD8C5ED32B10020C001E74BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD8C5EC02B10020A001E74BD /* SnootBooper */;
+			targetProxy = DD8C5ED22B10020C001E74BD /* PBXContainerItemProxy */;
+		};
+		DD8C5EDD2B10020C001E74BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD8C5EC02B10020A001E74BD /* SnootBooper */;
+			targetProxy = DD8C5EDC2B10020C001E74BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DD8C5EE32B10020C001E74BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD8C5EE42B10020C001E74BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD8C5EE62B10020C001E74BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Boop/Preview Content\"";
+				DEVELOPMENT_TEAM = A8Q9U5W4XJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Boop/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boop.Boop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD8C5EE72B10020C001E74BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Boop/Preview Content\"";
+				DEVELOPMENT_TEAM = A8Q9U5W4XJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Boop/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boop.Boop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD8C5EE92B10020C001E74BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8Q9U5W4XJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boop.BoopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnootBooper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnootBooper";
+			};
+			name = Debug;
+		};
+		DD8C5EEA2B10020C001E74BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8Q9U5W4XJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boop.BoopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnootBooper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnootBooper";
+			};
+			name = Release;
+		};
+		DD8C5EEC2B10020C001E74BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8Q9U5W4XJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boop.BoopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Boop;
+			};
+			name = Debug;
+		};
+		DD8C5EED2B10020C001E74BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A8Q9U5W4XJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boop.BoopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Boop;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD8C5EBC2B10020A001E74BD /* Build configuration list for PBXProject "SnootBooper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8C5EE32B10020C001E74BD /* Debug */,
+				DD8C5EE42B10020C001E74BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD8C5EE52B10020C001E74BD /* Build configuration list for PBXNativeTarget "SnootBooper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8C5EE62B10020C001E74BD /* Debug */,
+				DD8C5EE72B10020C001E74BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD8C5EE82B10020C001E74BD /* Build configuration list for PBXNativeTarget "SnootBooperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8C5EE92B10020C001E74BD /* Debug */,
+				DD8C5EEA2B10020C001E74BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD8C5EEB2B10020C001E74BD /* Build configuration list for PBXNativeTarget "SnootBooperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8C5EEC2B10020C001E74BD /* Debug */,
+				DD8C5EED2B10020C001E74BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD8C5EB92B10020A001E74BD /* Project object */;
+}
