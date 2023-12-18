@@ -1,5 +1,5 @@
 import SwiftUI
-import GameKit
+//import GameKit
 
 struct ContentView: View {
     
@@ -11,7 +11,9 @@ struct ContentView: View {
     @State private var showModal = false
     @State private var timer: Timer?
     @State private var timerCounter = 0
-    @State private var timeString = "00:00:00"
+    @State private var timeString = "00:00:000"
+    @State private var showLeaderboard = false
+    
     
     
     private let breedNames = ["Dalmatian", "Greyhound"]
@@ -22,12 +24,12 @@ struct ContentView: View {
     private let boopsCompletedNumber: Double = 10
     
     func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { _ in
             timerCounter += 1
-            let milliseconds = timerCounter % 100
-            let seconds = (timerCounter / 100) % 60
-            let minutes = (timerCounter / 100) / 60
-            timeString = String(format: "%02d:%02d:%02d", minutes, seconds, milliseconds)
+            let milliseconds = timerCounter % 1000
+            let seconds = ((timerCounter / 1000) % 60)
+            let minutes = (((timerCounter / 1000) / 60) % 60)
+            timeString = String(format: "%02d:%02d:%03d", minutes, seconds, milliseconds)
         }
     }
     
@@ -36,15 +38,15 @@ struct ContentView: View {
         timer = nil
     }
     
-    func authenticateUser() {
-        print("GAMEKIT AUTH STARTING")
-        GKLocalPlayer.local.authenticateHandler = { vc, error in
-            guard error == nil else {
-                print(error?.localizedDescription ?? "")
-                return
-            }
-        }
-    }
+    //    func authenticateUser() {
+    //        print("GAMEKIT AUTH STARTING")
+    //        GKLocalPlayer.local.authenticateHandler = { vc, error in
+    //            guard error == nil else {
+    //                print(error?.localizedDescription ?? "Cant find error")
+    //                return
+    //            }
+    //        }
+    //    }
     
     var body: some View {
         
@@ -76,26 +78,49 @@ struct ContentView: View {
                     
                     
                     HStack{
+                        if !showLeaderboard {
+                            Image(systemName: "heart.fill")
+                                .foregroundColor(.pink)
+                                .scaleEffect(1)
+                            
+                            ProgressView(value: min(Double(boopCounter) / boopsCompletedNumber, 1.0))
+                                .progressViewStyle(LinearProgressViewStyle(tint: .pink))
+                                .scaleEffect(x: 1, y: 2)
+                            
+                            Text(timeString)
+                                .foregroundColor(Color.white)
+                                .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.05, weight: .bold, design: .monospaced))
+                                .padding(10)
+                                .background(Color.black.opacity(0.6))
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.white, lineWidth: 5)
+                                )
+                        }
                         
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(.pink)
-                            .scaleEffect(1)
-                        ProgressView(value: min(Double(boopCounter) / boopsCompletedNumber, 1.0))
-                            .progressViewStyle(LinearProgressViewStyle(tint: .pink))
-                            .scaleEffect(x: 1, y: 2, anchor: .center)
-                        
-                        Spacer(minLength: 20)
-                        
-                        Text(timeString)
-                            .foregroundColor(Color.white)
-                            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.05, weight: .bold, design: .monospaced))
-                            .padding(10)
+                            Button(action: {
+                                withAnimation {
+                                    showLeaderboard.toggle()
+                                }
+                            }) {
+                                Image(systemName: showLeaderboard ? "chevron.right" : "chevron.left")
+                                    .foregroundColor(.white)
+                                    .padding()
+                            }
                             .background(Color.black.opacity(0.6))
                             .cornerRadius(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.white, lineWidth: 5)
-                            )
+                        
+                        if showLeaderboard{
+                            ScrollView(.horizontal) {
+                                HStack{
+                                    Text("LEASDER 1")
+                                    Text("LEASDER 2")
+                                    Text("LEASDER 3")
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
                     }
                     .padding()
                     
@@ -114,9 +139,9 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
             .onAppear(){
-                if !GKLocalPlayer.local.isAuthenticated {
-                    authenticateUser()
-                }
+                //                if !GKLocalPlayer.local.isAuthenticated {
+                //                    authenticateUser()
+                //                }
             }
             .onChange(of: boopCounter) { newValue in
                 if newValue >= boopsCompletedNumber {
@@ -143,16 +168,14 @@ struct ModalView: View {
                 Text("Done!")
                     .font(.largeTitle)
                     .bold()
-                VStack{
-                    Text("Your Time:")
-                        .bold()
-                    Text(timeString)
-                        .font(.largeTitle)
-                }
+                
+                Text(timeString)
+                    .font(.largeTitle)
+                
                 Button("OK") {
                     boopCounter = 0
                     showModal = false
-                    timeString = "00:00:00"
+                    timeString = "00:00:000"
                     timerCounter = 0
                 }
                 .padding()

@@ -98,7 +98,7 @@ struct USDZSceneView: UIViewRepresentable {
         
         var lastSelectedBreed: String
         
-        let hapticFeedback = UIImpactFeedbackGenerator(style: .medium)
+        let hapticFeedback = UIImpactFeedbackGenerator(style: .heavy)
         
         init(_ parent: USDZSceneView, heartIDs: Binding<[UUID]>, tapLocations: Binding<[UUID: CGPoint]>) {
             self.parent = parent
