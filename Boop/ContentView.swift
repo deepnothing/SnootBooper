@@ -10,10 +10,9 @@ struct ContentView: View {
     @State private var isComplete = false
     @State private var showModal = false
     @State private var timer: Timer?
-    @State private var timerCounter = 0
     @State private var timeString = "00:00:000"
+    @State private var elapsedTime: TimeInterval = 0.0
     @State private var showLeaderboard = false
-    
     
     
     private let breedNames = ["Dalmatian", "Greyhound"]
@@ -22,18 +21,21 @@ struct ContentView: View {
     private let scaleSize = 0.03
     private let animationDuration: Double = 0.1
     private let boopsCompletedNumber: Double = 10
+    private let timerInterval = 0.01
     
     func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { _ in
-            timerCounter += 1
-            let milliseconds = timerCounter % 1000
-            let seconds = ((timerCounter / 1000) % 60)
-            let minutes = (((timerCounter / 1000) / 60) % 60)
-            timeString = String(format: "%02d:%02d:%03d", minutes, seconds, milliseconds)
-        }
-    }
+           timer?.invalidate()
+           timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
+               elapsedTime += timerInterval
+               let minutes = Int(elapsedTime / 60)
+               let seconds = Int(elapsedTime) % 60
+               let milliseconds = Int((elapsedTime * 1000).truncatingRemainder(dividingBy: 1000))
+               timeString = String(format: "%02d:%02d:%03d", minutes, seconds, milliseconds)
+           }
+       }
     
     func stopTimer() {
+        print("stopping",elapsedTime)
         timer?.invalidate()
         timer = nil
     }
@@ -91,7 +93,7 @@ struct ContentView: View {
                                 .foregroundColor(Color.white)
                                 .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.05, weight: .bold, design: .monospaced))
                                 .padding(10)
-                                .background(Color.black.opacity(0.6))
+                                .background(Color.black.opacity(0.8))
                                 .cornerRadius(10)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 5)
@@ -108,7 +110,7 @@ struct ContentView: View {
                                     .foregroundColor(.white)
                                     .padding()
                             }
-                            .background(Color.black.opacity(0.6))
+                            .background(Color.black.opacity(0.8))
                             .cornerRadius(10)
                         
                         if showLeaderboard{
@@ -131,7 +133,7 @@ struct ContentView: View {
                 }
                 
                 if showModal {
-                    ModalView(showModal: $showModal, boopCounter: $boopCounter, timeString:$timeString, timerCounter: $timerCounter)
+                    ModalView(showModal: $showModal, boopCounter: $boopCounter, timeString:$timeString, elapsedTime: $elapsedTime)
                 }
                 if showLaunchScreen{
                     AnimatedLaunchScreen(showLaunchScreen: $showLaunchScreen)
@@ -145,8 +147,8 @@ struct ContentView: View {
             }
             .onChange(of: boopCounter) { newValue in
                 if newValue >= boopsCompletedNumber {
-                    showModal = true
                     stopTimer()
+                    showModal = true
                 }
                 if newValue == 1 {
                     startTimer()
@@ -160,7 +162,7 @@ struct ModalView: View {
     @Binding var showModal: Bool
     @Binding var boopCounter: CGFloat
     @Binding var timeString: String
-    @Binding var timerCounter: Int
+    @Binding var elapsedTime:Double
     
     var body: some View {
         VStack {
@@ -169,14 +171,14 @@ struct ModalView: View {
                     .font(.largeTitle)
                     .bold()
                 
+                Text("Your Time:")
                 Text(timeString)
-                    .font(.largeTitle)
                 
                 Button("OK") {
                     boopCounter = 0
                     showModal = false
                     timeString = "00:00:000"
-                    timerCounter = 0
+                    elapsedTime = 0
                 }
                 .padding()
                 .background(Color.blue)
