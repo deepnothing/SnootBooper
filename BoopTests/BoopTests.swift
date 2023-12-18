@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Boop
+@testable import SnootBooper
 
 final class BoopTests: XCTestCase {
 

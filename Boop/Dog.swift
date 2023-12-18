@@ -7,8 +7,6 @@ struct Dog: View {
     @Binding var boopCounter: CGFloat
     @Binding var selectedBreed: String
     
-    //@Binding var isFogOn: Bool
-
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -34,23 +32,15 @@ struct Dog: View {
                             VStack {
                                 HStack {
                                     Spacer()
-                                    Image(systemName: "arrow.left.arrow.right")
+                                    Image(systemName: "hand.tap")
                                         .resizable()
-                                        .frame(width: 30, height: 30)
+                                        .frame(width: 40, height: 45)
                                         .foregroundColor(.white)
                                         .padding()
                                 }
                                 Spacer()
                             }
                         )
-                    //                        .overlay(
-                    //                            Group{
-                    //                                if isFogOn{
-                    //                                    Fog(boopCounter: $boopCounter)
-                    //                                }
-                    //                            }
-                    //
-                    //                        )
                 }
             }
         }
@@ -70,7 +60,6 @@ struct USDZSceneView: UIViewRepresentable {
         // Load the scene
         setupScene(view: sceneView)
         
-        // Create and add tap gesture recognizer
         let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap))
         sceneView.addGestureRecognizer(tap)
         

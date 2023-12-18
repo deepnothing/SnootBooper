@@ -1,9 +1,7 @@
 import SwiftUI
-//import CoreBluetooth
 import GameKit
 
 struct ContentView: View {
-    //@StateObject private var bluetoothManager = BluetoothManager()
     
     @State private var showLaunchScreen = true
     @State private var selectedBreed = "Dalmatian"
@@ -15,9 +13,6 @@ struct ContentView: View {
     @State private var timerCounter = 0
     @State private var timeString = "00:00:00"
     
-    
-    //@State private var isFogOn: Bool = false
-    //@State private var fogSize: CGFloat = 100
     
     private let breedNames = ["Dalmatian", "Greyhound"]
     private let backgroundOptions = ["blue", "city", "jungle", "beach", "space", "desert"]
@@ -41,13 +36,21 @@ struct ContentView: View {
         timer = nil
     }
     
-   
+    func authenticateUser() {
+        print("GAMEKIT AUTH STARTING")
+        GKLocalPlayer.local.authenticateHandler = { vc, error in
+            guard error == nil else {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+        }
+    }
     
     var body: some View {
         
         GeometryReader { geometry in
             ZStack {
-               
+                
                 Image(backgroundImage)
                     .resizable()
                     .scaledToFill()
@@ -59,14 +62,6 @@ struct ContentView: View {
                     HStack(alignment: .top) {
                         VStack(alignment:.leading){
                             DropdownMenu(selectedOption: $selectedBreed, options: breedNames)
-                            // Fog switch --
-                            // HStack{
-                            //      Toggle("", isOn: $isFogOn)
-                            //          .labelsHidden()
-                            //      Text(" Fog")
-                            //          .foregroundColor(Color.white)
-                            //          bold()
-                            // }
                             
                             Text("Tap the dog's nose as quickly as you can to play!")
                                 .foregroundColor(.white)
@@ -107,11 +102,9 @@ struct ContentView: View {
                     Dog(
                         boopCounter: $boopCounter,
                         selectedBreed: $selectedBreed
-                        //,isFogOn: $isFogOn
                     )
                 }
                 
-                // Modal View
                 if showModal {
                     ModalView(showModal: $showModal, boopCounter: $boopCounter, timeString:$timeString, timerCounter: $timerCounter)
                 }
@@ -120,6 +113,11 @@ struct ContentView: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
+            .onAppear(){
+                if !GKLocalPlayer.local.isAuthenticated {
+                    authenticateUser()
+                }
+            }
             .onChange(of: boopCounter) { newValue in
                 if newValue >= boopsCompletedNumber {
                     showModal = true
@@ -129,14 +127,6 @@ struct ContentView: View {
                     startTimer()
                 }
             }
-            //            .onAppear {
-            //                // Start Bluetooth scanning when ContentView appears
-            //                bluetoothManager.startScanning()
-            //            }
-            //            .onDisappear {
-            //                // Stop Bluetooth scanning when ContentView disappears
-            //                bluetoothManager.stopScanning()
-            //            }
         }
     }
 }
@@ -153,7 +143,12 @@ struct ModalView: View {
                 Text("Done!")
                     .font(.largeTitle)
                     .bold()
-                Text(timeString)
+                VStack{
+                    Text("Your Time:")
+                        .bold()
+                    Text(timeString)
+                        .font(.largeTitle)
+                }
                 Button("OK") {
                     boopCounter = 0
                     showModal = false

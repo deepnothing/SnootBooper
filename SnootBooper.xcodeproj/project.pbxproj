@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD1BE3162B26AC1300F302A3 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1BE3152B26AC1300F302A3 /* BluetoothManager.swift */; };
 		DD81DC5E2B23A08400EBF40A /* Dalmatian.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */; };
 		DD8C5EC52B10020A001E74BD /* BoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC42B10020A001E74BD /* BoopApp.swift */; };
 		DD8C5EC72B10020A001E74BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC62B10020A001E74BD /* ContentView.swift */; };
@@ -20,7 +19,6 @@
 		DDBDC7202B191FB100CF6591 /* BackgroundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBDC71F2B191FB100CF6591 /* BackgroundPicker.swift */; };
 		DDCCABA72B1D40E800C79823 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCCABA62B1D40E800C79823 /* Dog.swift */; };
 		DDCCABB42B1E8D4E00C79823 /* FloatingHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCCABB32B1E8D4E00C79823 /* FloatingHeart.swift */; };
-		DDCCABB62B1FC5DF00C79823 /* Fog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCCABB52B1FC5DF00C79823 /* Fog.swift */; };
 		DDD08DB02B2FACD500796A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD08DAF2B2FACD500796A41 /* LaunchScreen.storyboard */; };
 		DDD08DB22B2FBC7C00796A41 /* AnimatedLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD08DB12B2FBC7C00796A41 /* AnimatedLaunchScreen.swift */; };
 		DDFF02F02B2B689A00A36358 /* Greyhound.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DDFF02EF2B2B689A00A36358 /* Greyhound.usdz */; };
@@ -44,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DD1BE3152B26AC1300F302A3 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		DD1BE31C2B27D30300F302A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Dalmatian.usdz; sourceTree = "<group>"; };
 		DD8C5EC12B10020A001E74BD /* SnootBooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnootBooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +58,6 @@
 		DDBDC71F2B191FB100CF6591 /* BackgroundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPicker.swift; sourceTree = "<group>"; };
 		DDCCABA62B1D40E800C79823 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		DDCCABB32B1E8D4E00C79823 /* FloatingHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingHeart.swift; sourceTree = "<group>"; };
-		DDCCABB52B1FC5DF00C79823 /* Fog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fog.swift; sourceTree = "<group>"; };
 		DDD08DAF2B2FACD500796A41 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDD08DB12B2FBC7C00796A41 /* AnimatedLaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLaunchScreen.swift; sourceTree = "<group>"; };
 		DDFF02EF2B2B689A00A36358 /* Greyhound.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Greyhound.usdz; sourceTree = "<group>"; };
@@ -126,8 +122,6 @@
 				DDBDC71F2B191FB100CF6591 /* BackgroundPicker.swift */,
 				DDCCABB32B1E8D4E00C79823 /* FloatingHeart.swift */,
 				DDCCABA62B1D40E800C79823 /* Dog.swift */,
-				DDCCABB52B1FC5DF00C79823 /* Fog.swift */,
-				DD1BE3152B26AC1300F302A3 /* BluetoothManager.swift */,
 				DD1BE31C2B27D30300F302A3 /* Info.plist */,
 			);
 			path = Boop;
@@ -302,9 +296,7 @@
 			files = (
 				DD8C5EC72B10020A001E74BD /* ContentView.swift in Sources */,
 				DD8C5EC52B10020A001E74BD /* BoopApp.swift in Sources */,
-				DD1BE3162B26AC1300F302A3 /* BluetoothManager.swift in Sources */,
 				DDD08DB22B2FBC7C00796A41 /* AnimatedLaunchScreen.swift in Sources */,
-				DDCCABB62B1FC5DF00C79823 /* Fog.swift in Sources */,
 				DD8C5EEF2B1130C4001E74BD /* DropDownMenu.swift in Sources */,
 				DDCCABA72B1D40E800C79823 /* Dog.swift in Sources */,
 				DDCCABB42B1E8D4E00C79823 /* FloatingHeart.swift in Sources */,
