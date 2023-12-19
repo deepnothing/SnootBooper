@@ -12,8 +12,6 @@ struct ContentView: View {
     @State private var timer: Timer?
     @State private var timeString = "00:00:000"
     @State private var elapsedTime: TimeInterval = 0.0
-    @State private var showLeaderboard = false
-    
     
     private let breedNames = ["Dalmatian", "Greyhound"]
     private let backgroundOptions = ["blue", "city", "jungle", "beach", "space", "desert"]
@@ -43,13 +41,14 @@ struct ContentView: View {
     
     func submitScoreToLeaderboard() async {
         do {
-            let scoreValue = Int(1000000 * elapsedTime)
+            let scoreValue = Int(100000000 * elapsedTime)
             try await GKLeaderboard.submitScore(
                 scoreValue,
                 context: 0,
                 player: GKLocalPlayer.local,
                 leaderboardIDs: ["boopers_1"]
             )
+            print("\(elapsedTime) submitted to leaderboard")
         } catch {
             print("Error submitting score to leaderboard: \(error)")
         }
@@ -82,59 +81,35 @@ struct ContentView: View {
                     }
                     .padding()
                     
+                    LeadersTileView()
                     
                     HStack{
-                        if !showLeaderboard {
-                            Image(systemName: "heart.fill")
-                                .foregroundColor(.pink)
-                                .scaleEffect(1)
-                            
-                            ProgressView(value: min(Double(boopCounter) / boopsCompletedNumber, 1.0))
-                                .progressViewStyle(LinearProgressViewStyle(tint: .pink))
-                                .scaleEffect(x: 1, y: 2)
-                            
-                            Text(timeString)
-                                .foregroundColor(Color.white)
-                                .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.05, weight: .bold, design: .monospaced))
-                                .padding(10)
-                                .background(Color.black.opacity(0.8))
-                                .cornerRadius(10)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(Color.white, lineWidth: 5)
-                                )
-                        }
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.pink)
+                            .scaleEffect(1)
                         
-                        Button(action: {
-                            withAnimation {
-                                showLeaderboard.toggle()
-                            }
-                        }) {
-                            Image(systemName: showLeaderboard ? "chevron.right" : "chevron.left")
-                                .foregroundColor(.white)
-                                .padding()
-                        }
-                        .background(Color.black.opacity(0.8))
-                        .cornerRadius(10)
+                        ProgressView(value: min(Double(boopCounter) / boopsCompletedNumber, 1.0))
+                            .progressViewStyle(LinearProgressViewStyle(tint: .pink))
+                            .scaleEffect(x: 1, y: 2)
                         
-                        if showLeaderboard{
-                            ScrollView(.horizontal) {
-                                HStack{
-                                    Text("LEASDER 1")
-                                    Text("LEASDER 2")
-                                    Text("LEASDER 3")
-                                }
-                            }
-                            .frame(maxWidth: .infinity)
-                        }
+                        Spacer(minLength:10)
+                        
+                        Text(timeString)
+                            .foregroundColor(Color.white)
+                            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.05, weight: .bold, design: .monospaced))
+                            .padding(10)
+                            .background(Color.black.opacity(0.8))
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color.white, lineWidth: 5)
+                            )
+                        
                     }
-                    .padding()
+                    .padding([.leading,.trailing,.top])
                     
-                    LeadersTileView()
-                    Dog(
-                        boopCounter: $boopCounter,
-                        selectedBreed: $selectedBreed
-                    )
+                    
+                    Dog(boopCounter: $boopCounter,selectedBreed: $selectedBreed)
                     
                 }
                 
@@ -150,9 +125,9 @@ struct ContentView: View {
                 if newValue >= boopsCompletedNumber {
                     stopTimer()
                     showModal = true
-//                    Task {
-//                        await submitScoreToLeaderboard()
-//                    }
+                    Task {
+                        await submitScoreToLeaderboard()
+                    }
                 }
                 if newValue == 1 {
                     startTimer()

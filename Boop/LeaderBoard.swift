@@ -22,13 +22,14 @@ struct LeadersTileView: View {
     var body: some View {
         VStack(spacing: 0){
             HStack{
-                Text("COMPETITION")
+                Text("LEADERBOARD")
                     .fontWeight(.heavy)
-                    .padding(.leading, 20)
+                    .padding(.leading)
                     .foregroundColor(.white)
                 Spacer()
-                Text("Show More")
-                    .padding(.trailing, 20)
+                Button("Show Friends"){
+                    
+                }.padding(.trailing)
                     .foregroundColor(.white)
             }
             
@@ -37,28 +38,36 @@ struct LeadersTileView: View {
                 {
                     HStack(spacing: 10){
                         ForEach(playersList, id: \.self) { item in
-                            VStack{
-                                Image(uiImage: item.image!)
-                                    .resizable()
-                                    .frame(width: 72, height: 72, alignment: .center)
-                                    .clipShape(Circle())
-                                Text(item.name)
-                                    .fontWeight(.heavy)
-                                    .lineLimit(1)
-                                    .foregroundColor(.white)
-                                    .truncationMode(.middle)
-                                    .frame(minWidth:105,idealWidth:105,maxWidth:105)
-                                Text(item.score)
-                                    .foregroundColor(.white)
-                            }.padding(5)
+                            HStack{
+                                HStack{
+                                    Image(uiImage: item.image!)
+                                        .resizable()
+                                        .frame(width: 40, height: 40, alignment: .center)
+                                        .clipShape(Circle())
+                                    VStack(alignment: .leading){
+                                        Text(item.name)
+                                            .fontWeight(.medium)
+                                            .lineLimit(1)
+                                            .foregroundColor(.white)
+                                            .truncationMode(.middle)
+                                        HStack(spacing: 5){
+                                            Text(String((Double(item.score.replacingOccurrences(of: ",", with: "")) ?? 100000000000) / 100000000))
+                                                .foregroundColor(.white)
+                                            Text("Seconds")
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                }
+                                .padding(10)
+                            }
+                            .background(Color("dark-green"))
+                            .cornerRadius(10)
+                            .padding()
+                            .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
                         }
                     }
                 }
-                .padding(.leading, 10.0)
             }
-            .padding(5)
-            .frame(minWidth:350, idealWidth:350,maxWidth:350, minHeight: 113)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
         }
         .onAppear(){
             if !GKLocalPlayer.local.isAuthenticated {
