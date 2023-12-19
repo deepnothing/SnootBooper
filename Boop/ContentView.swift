@@ -1,5 +1,5 @@
 import SwiftUI
-//import GameKit
+import GameKit
 
 struct ContentView: View {
     
@@ -24,15 +24,15 @@ struct ContentView: View {
     private let timerInterval = 0.01
     
     func startTimer() {
-           timer?.invalidate()
-           timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
-               elapsedTime += timerInterval
-               let minutes = Int(elapsedTime / 60)
-               let seconds = Int(elapsedTime) % 60
-               let milliseconds = Int((elapsedTime * 1000).truncatingRemainder(dividingBy: 1000))
-               timeString = String(format: "%02d:%02d:%03d", minutes, seconds, milliseconds)
-           }
-       }
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
+            elapsedTime += timerInterval
+            let minutes = Int(elapsedTime / 60)
+            let seconds = Int(elapsedTime) % 60
+            let milliseconds = Int((elapsedTime * 1000).truncatingRemainder(dividingBy: 1000))
+            timeString = String(format: "%02d:%02d:%03d", minutes, seconds, milliseconds)
+        }
+    }
     
     func stopTimer() {
         print("stopping",elapsedTime)
@@ -40,15 +40,21 @@ struct ContentView: View {
         timer = nil
     }
     
-    //    func authenticateUser() {
-    //        print("GAMEKIT AUTH STARTING")
-    //        GKLocalPlayer.local.authenticateHandler = { vc, error in
-    //            guard error == nil else {
-    //                print(error?.localizedDescription ?? "Cant find error")
-    //                return
-    //            }
-    //        }
-    //    }
+    
+    func submitScoreToLeaderboard() async {
+        do {
+            let scoreValue = Int(1000000 * elapsedTime)
+            try await GKLeaderboard.submitScore(
+                scoreValue,
+                context: 0,
+                player: GKLocalPlayer.local,
+                leaderboardIDs: ["boopers_1"]
+            )
+        } catch {
+            print("Error submitting score to leaderboard: \(error)")
+        }
+    }
+    
     
     var body: some View {
         
@@ -70,8 +76,6 @@ struct ContentView: View {
                             Text("Tap the dog's nose as quickly as you can to play!")
                                 .foregroundColor(.white)
                                 .padding(.top,2)
-                            
-                            
                         }
                         Spacer()
                         BackgroundPicker(backgroundImage: $backgroundImage, options: backgroundOptions)
@@ -101,17 +105,17 @@ struct ContentView: View {
                                 )
                         }
                         
-                            Button(action: {
-                                withAnimation {
-                                    showLeaderboard.toggle()
-                                }
-                            }) {
-                                Image(systemName: showLeaderboard ? "chevron.right" : "chevron.left")
-                                    .foregroundColor(.white)
-                                    .padding()
+                        Button(action: {
+                            withAnimation {
+                                showLeaderboard.toggle()
                             }
-                            .background(Color.black.opacity(0.8))
-                            .cornerRadius(10)
+                        }) {
+                            Image(systemName: showLeaderboard ? "chevron.right" : "chevron.left")
+                                .foregroundColor(.white)
+                                .padding()
+                        }
+                        .background(Color.black.opacity(0.8))
+                        .cornerRadius(10)
                         
                         if showLeaderboard{
                             ScrollView(.horizontal) {
@@ -126,10 +130,12 @@ struct ContentView: View {
                     }
                     .padding()
                     
+                    LeadersTileView()
                     Dog(
                         boopCounter: $boopCounter,
                         selectedBreed: $selectedBreed
                     )
+                    
                 }
                 
                 if showModal {
@@ -140,15 +146,13 @@ struct ContentView: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
-            .onAppear(){
-                //                if !GKLocalPlayer.local.isAuthenticated {
-                //                    authenticateUser()
-                //                }
-            }
             .onChange(of: boopCounter) { newValue in
                 if newValue >= boopsCompletedNumber {
                     stopTimer()
                     showModal = true
+//                    Task {
+//                        await submitScoreToLeaderboard()
+//                    }
                 }
                 if newValue == 1 {
                     startTimer()
@@ -164,7 +168,9 @@ struct ModalView: View {
     @Binding var timeString: String
     @Binding var elapsedTime:Double
     
+    
     var body: some View {
+        
         VStack {
             VStack{
                 Text("Done!")
@@ -195,7 +201,6 @@ struct ModalView: View {
         .edgesIgnoringSafeArea(.all)
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD6AEEC62B315553009E1A7B /* LeaderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AEEC52B315553009E1A7B /* LeaderBoard.swift */; };
 		DD81DC5E2B23A08400EBF40A /* Dalmatian.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */; };
 		DD8C5EC52B10020A001E74BD /* BoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC42B10020A001E74BD /* BoopApp.swift */; };
 		DD8C5EC72B10020A001E74BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC62B10020A001E74BD /* ContentView.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		DD1BE31C2B27D30300F302A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD6AEEC52B315553009E1A7B /* LeaderBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
 		DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Dalmatian.usdz; sourceTree = "<group>"; };
 		DD8C5EC12B10020A001E74BD /* SnootBooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnootBooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8C5EC42B10020A001E74BD /* BoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoopApp.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				DDCCABB32B1E8D4E00C79823 /* FloatingHeart.swift */,
 				DDCCABA62B1D40E800C79823 /* Dog.swift */,
 				DD1BE31C2B27D30300F302A3 /* Info.plist */,
+				DD6AEEC52B315553009E1A7B /* LeaderBoard.swift */,
 			);
 			path = Boop;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD8C5EC72B10020A001E74BD /* ContentView.swift in Sources */,
+				DD6AEEC62B315553009E1A7B /* LeaderBoard.swift in Sources */,
 				DD8C5EC52B10020A001E74BD /* BoopApp.swift in Sources */,
 				DDD08DB22B2FBC7C00796A41 /* AnimatedLaunchScreen.swift in Sources */,
 				DD8C5EEF2B1130C4001E74BD /* DropDownMenu.swift in Sources */,
@@ -464,18 +468,20 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Boop/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SnootBooper;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.boop.Boop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boop.snoot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -496,18 +502,20 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Boop/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SnootBooper;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.boop.Boop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boop.snoot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

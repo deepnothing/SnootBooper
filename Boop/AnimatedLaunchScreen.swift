@@ -17,7 +17,6 @@ struct AnimatedLaunchScreen: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 220, height: 600)
                 
-                
                 Image("finger")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -31,7 +30,6 @@ struct AnimatedLaunchScreen: View {
                         }
                     }
             }
-            
         }
         .ignoresSafeArea()
     }
