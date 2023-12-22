@@ -1,6 +1,5 @@
 import SwiftUI
 import GameKit
-import CoreMotion
 
 struct Player: Hashable, Comparable{
     static func < (lhs: Player, rhs: Player) -> Bool {
@@ -16,7 +15,7 @@ struct ContentView: View {
     
     @AppStorage("GKGameCenterViewControllerState") var gameCenterViewControllerState:GKGameCenterViewControllerState = .default
     @AppStorage("IsGameCenterActive") var isGKActive:Bool = false
-  
+    
     
     @State private var showLaunchScreen = true
     @State private var selectedBreed = "Dalmatian"
@@ -77,6 +76,7 @@ struct ContentView: View {
     }
     
     func authenticateUser() {
+        print("starting auth...")
         GKLocalPlayer.local.authenticateHandler = { vc, error in
             guard error == nil else {
                 print(error?.localizedDescription ?? "GKPLAYER AUTH ERROR")
@@ -93,7 +93,7 @@ struct ContentView: View {
     func loadLeaderboard(source: Int = 0) async {
         print(source)
         print("source")
-        playersList.removeAll()
+        //playersList.removeAll()
         Task{
             var playersListTemp : [Player] = []
             let leaderboards = try await GKLeaderboard.loadLeaderboards(IDs: [leaderboardIdentifier])
@@ -204,10 +204,6 @@ struct ContentView: View {
                     }
                 }
             }
-//            .onTapGesture {
-//                gameCenterViewControllerState = .leaderboards
-//                isGKActive = true
-//            }
         }
     }
 }

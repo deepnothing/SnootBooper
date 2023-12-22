@@ -1,13 +1,16 @@
 import SwiftUI
 import GameKit
-import CoreMotion
-
-
 
 struct LeaderBoard: View {
     @Binding var playersList: [Player]
     @Binding var isAuthenticated: Bool
-   
+    
+    func openSettings() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 0){
             HStack{
@@ -26,26 +29,26 @@ struct LeaderBoard: View {
             VStack{
                 if !isAuthenticated {
                     HStack{
-                            Button("Sign in"){
-                                print("authenticating player...")
-                                //authenticateUser()
-                            }
-                            .padding(10)
-                            .foregroundColor(.white)
-                            .background(Color.accentColor)
-                            .cornerRadius(7)
-
-                            
+                        Button("Sign in"){
+                            openSettings()
+                        }
+                        .padding(10)
+                        .foregroundColor(.white)
+                        .background(Color.accentColor)
+                        .cornerRadius(7)
+                        
                         Text("to Game Center")
                             .foregroundColor(.white)
                     } .padding()
                 } else
                 if playersList.isEmpty {
-                    Text("No entries yet")
-                        .foregroundColor(.white)
-                        .padding()
+                    HStack{
+                        Text("No entries yet")
+                            .foregroundColor(.white)
+                            .padding(10)
+                    }.padding()
                 }
-                 else {
+                else {
                     ScrollView(.horizontal, showsIndicators: false)
                     {
                         HStack(spacing: 10){

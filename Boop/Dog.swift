@@ -130,7 +130,8 @@ struct USDZSceneView: UIViewRepresentable {
             
             if rec.state == .changed {
                 let translation = rec.translation(in: sceneView)
-                let rotation = SCNAction.rotateBy(x: 0, y: translation.x/100, z: 0, duration: 0)
+                // print(translation.y)
+                let rotation = SCNAction.rotateBy(x: 0, y: translation.x/50, z: 0, duration: 0)
                 
                 if let bodyNode = sceneView.scene?.rootNode.childNode(withName: "Body", recursively: true) {
                     bodyNode.runAction(rotation)

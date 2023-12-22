@@ -12,7 +12,7 @@ struct DropdownMenu: View {
 
                 } label: {
                     HStack {
-                        Text(option.replacingOccurrences(of: "_", with: " "))
+                        Text(option)
                         Spacer()
                         if option == selectedOption {
                             Image(systemName: "checkmark")
