@@ -28,19 +28,6 @@ struct Dog: View {
                                 }
                             }
                         )
-                        .overlay(
-                            VStack {
-                                HStack {
-                                    Spacer()
-                                    Image(systemName: "hand.tap")
-                                        .resizable()
-                                        .frame(width: 40, height: 45)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                }
-                                Spacer()
-                            }
-                        )
                 }
             }
         }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD6AEEC62B315553009E1A7B /* LeaderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AEEC52B315553009E1A7B /* LeaderBoard.swift */; };
+		DD6AEEC82B355F31009E1A7B /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AEEC72B355F31009E1A7B /* Modal.swift */; };
 		DD81DC5E2B23A08400EBF40A /* Dalmatian.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */; };
 		DD8C5EC52B10020A001E74BD /* BoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC42B10020A001E74BD /* BoopApp.swift */; };
 		DD8C5EC72B10020A001E74BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC62B10020A001E74BD /* ContentView.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		DD1BE31C2B27D30300F302A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD6AEEC52B315553009E1A7B /* LeaderBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
+		DD6AEEC72B355F31009E1A7B /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Dalmatian.usdz; sourceTree = "<group>"; };
 		DD8C5EC12B10020A001E74BD /* SnootBooper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnootBooper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8C5EC42B10020A001E74BD /* BoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoopApp.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				DDCCABA62B1D40E800C79823 /* Dog.swift */,
 				DD1BE31C2B27D30300F302A3 /* Info.plist */,
 				DD6AEEC52B315553009E1A7B /* LeaderBoard.swift */,
+				DD6AEEC72B355F31009E1A7B /* Modal.swift */,
 			);
 			path = Boop;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				DD8C5EEF2B1130C4001E74BD /* DropDownMenu.swift in Sources */,
 				DDCCABA72B1D40E800C79823 /* Dog.swift in Sources */,
 				DDCCABB42B1E8D4E00C79823 /* FloatingHeart.swift in Sources */,
+				DD6AEEC82B355F31009E1A7B /* Modal.swift in Sources */,
 				DDBDC7202B191FB100CF6591 /* BackgroundPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

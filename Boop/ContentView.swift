@@ -1,7 +1,22 @@
 import SwiftUI
 import GameKit
+import CoreMotion
+
+struct Player: Hashable, Comparable{
+    static func < (lhs: Player, rhs: Player) -> Bool {
+        return rhs.score > lhs.score
+    }
+    let id = UUID()
+    let name: String
+    let score: String
+    let image: UIImage?
+}
 
 struct ContentView: View {
+    
+    @AppStorage("GKGameCenterViewControllerState") var gameCenterViewControllerState:GKGameCenterViewControllerState = .default
+    @AppStorage("IsGameCenterActive") var isGKActive:Bool = false
+  
     
     @State private var showLaunchScreen = true
     @State private var selectedBreed = "Dalmatian"
@@ -12,6 +27,9 @@ struct ContentView: View {
     @State private var timer: Timer?
     @State private var timeString = "00:00:000"
     @State private var elapsedTime: TimeInterval = 0.0
+    @State var playersList: [Player] = []
+    @State private var isAuthenticated: Bool = false
+    
     
     private let breedNames = ["Dalmatian", "Greyhound"]
     private let backgroundOptions = ["blue", "city", "jungle", "beach", "space", "desert"]
@@ -20,6 +38,7 @@ struct ContentView: View {
     private let animationDuration: Double = 0.1
     private let boopsCompletedNumber: Double = 10
     private let timerInterval = 0.01
+    var leaderboardIdentifier = "boopers_1"
     
     func startTimer() {
         timer?.invalidate()
@@ -49,8 +68,51 @@ struct ContentView: View {
                 leaderboardIDs: ["boopers_1"]
             )
             print("\(elapsedTime) submitted to leaderboard")
+            Task {
+                await loadLeaderboard(source: 2)
+            }
         } catch {
             print("Error submitting score to leaderboard: \(error)")
+        }
+    }
+    
+    func authenticateUser() {
+        GKLocalPlayer.local.authenticateHandler = { vc, error in
+            guard error == nil else {
+                print(error?.localizedDescription ?? "GKPLAYER AUTH ERROR")
+                return
+            }
+            Task{
+                print(GKLocalPlayer.local.isAuthenticated,"auth")
+                isAuthenticated = GKLocalPlayer.local.isAuthenticated
+                await loadLeaderboard(source: 3)
+            }
+        }
+    }
+    
+    func loadLeaderboard(source: Int = 0) async {
+        print(source)
+        print("source")
+        playersList.removeAll()
+        Task{
+            var playersListTemp : [Player] = []
+            let leaderboards = try await GKLeaderboard.loadLeaderboards(IDs: [leaderboardIdentifier])
+            if let leaderboard = leaderboards.filter ({ $0.baseLeaderboardID == self.leaderboardIdentifier }).first {
+                let allPlayers = try await leaderboard.loadEntries(for: .global, timeScope: .allTime, range: NSRange(1...5))
+                if allPlayers.1.count > 0 {
+                    for leaderboardEntry in allPlayers.1 {
+                        do {
+                            let image = try await leaderboardEntry.player.loadPhoto(for: .small)
+                            playersListTemp.append(Player(name: leaderboardEntry.player.displayName, score: leaderboardEntry.formattedScore, image: image))
+                        } catch {
+                            print("Error loading player photo: \(error)")
+                        }
+                    }
+                }
+            }
+            print("playersList")
+            print(playersListTemp)
+            playersList = playersListTemp
         }
     }
     
@@ -81,7 +143,7 @@ struct ContentView: View {
                     }
                     .padding()
                     
-                    LeadersTileView()
+                    LeaderBoard(playersList: $playersList,isAuthenticated: $isAuthenticated)
                     
                     HStack{
                         Image(systemName: "heart.fill")
@@ -96,7 +158,7 @@ struct ContentView: View {
                         
                         Text(timeString)
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.05, weight: .bold, design: .monospaced))
+                            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.06, weight: .bold, design: .monospaced))
                             .padding(10)
                             .background(Color.black.opacity(0.8))
                             .cornerRadius(10)
@@ -106,7 +168,7 @@ struct ContentView: View {
                             )
                         
                     }
-                    .padding([.leading,.trailing,.top])
+                    .padding([.leading,.trailing])
                     
                     
                     Dog(boopCounter: $boopCounter,selectedBreed: $selectedBreed)
@@ -114,7 +176,7 @@ struct ContentView: View {
                 }
                 
                 if showModal {
-                    ModalView(showModal: $showModal, boopCounter: $boopCounter, timeString:$timeString, elapsedTime: $elapsedTime)
+                    Modal(showModal: $showModal, boopCounter: $boopCounter, timeString:$timeString, elapsedTime: $elapsedTime)
                 }
                 if showLaunchScreen{
                     AnimatedLaunchScreen(showLaunchScreen: $showLaunchScreen)
@@ -133,47 +195,20 @@ struct ContentView: View {
                     startTimer()
                 }
             }
-        }
-    }
-}
-
-struct ModalView: View {
-    @Binding var showModal: Bool
-    @Binding var boopCounter: CGFloat
-    @Binding var timeString: String
-    @Binding var elapsedTime:Double
-    
-    
-    var body: some View {
-        
-        VStack {
-            VStack{
-                Text("Done!")
-                    .font(.largeTitle)
-                    .bold()
-                
-                Text("Your Time:")
-                Text(timeString)
-                
-                Button("OK") {
-                    boopCounter = 0
-                    showModal = false
-                    timeString = "00:00:000"
-                    elapsedTime = 0
+            .onAppear(){
+                if !GKLocalPlayer.local.isAuthenticated {
+                    authenticateUser()
+                } else if playersList.count == 0 {
+                    Task{
+                        await loadLeaderboard(source: 1)
+                    }
                 }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .frame(minWidth: 200)
             }
-            .padding()
+//            .onTapGesture {
+//                gameCenterViewControllerState = .leaderboards
+//                isGKActive = true
+//            }
         }
-        .background(Color.white)
-        .cornerRadius(10)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black.opacity(0.5))
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
