@@ -95,9 +95,9 @@ struct LeaderBoard: View {
                                 }
                                 .background(Color("dark-green"))
                                 .cornerRadius(10)
-                                .padding()
+                                .padding([.top,.leading,.bottom])
                                 .shadow(color: Color.black.opacity(0.7), radius: 4, x: 0, y: 2)
-                             
+                    
                             }
                         }
                     }
