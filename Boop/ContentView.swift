@@ -24,10 +24,11 @@ struct ContentView: View {
     @State private var isComplete = false
     @State private var showModal = false
     @State private var timer: Timer?
-    @State private var timeString = "00:00:000"
+    @State private var timeString = "00:00:00"
     @State private var elapsedTime: TimeInterval = 0.0
     @State var playersList: [Player] = []
     @State private var isAuthenticated: Bool = false
+    @State private var showFriendsOnly: Bool = false
     
     
     private let breedNames = ["Dalmatian", "Greyhound"]
@@ -45,8 +46,8 @@ struct ContentView: View {
             elapsedTime += timerInterval
             let minutes = Int(elapsedTime / 60)
             let seconds = Int(elapsedTime) % 60
-            let milliseconds = Int((elapsedTime * 1000).truncatingRemainder(dividingBy: 1000))
-            timeString = String(format: "%02d:%02d:%03d", minutes, seconds, milliseconds)
+            let milliseconds = Int((elapsedTime.truncatingRemainder(dividingBy: 1)) * 100)
+            timeString = String(format: "%02d:%02d:%02d", minutes, seconds, milliseconds)
         }
     }
     
@@ -55,7 +56,6 @@ struct ContentView: View {
         timer?.invalidate()
         timer = nil
     }
-    
     
     func submitScoreToLeaderboard() async {
         do {
@@ -90,6 +90,13 @@ struct ContentView: View {
         }
     }
     
+    func toggleFriendsOnly(){
+        showFriendsOnly.toggle()
+        Task{
+            await loadLeaderboard(source:4)
+        }
+    }
+    
     func loadLeaderboard(source: Int = 0) async {
         print(source)
         print("source")
@@ -98,7 +105,9 @@ struct ContentView: View {
             var playersListTemp : [Player] = []
             let leaderboards = try await GKLeaderboard.loadLeaderboards(IDs: [leaderboardIdentifier])
             if let leaderboard = leaderboards.filter ({ $0.baseLeaderboardID == self.leaderboardIdentifier }).first {
-                let allPlayers = try await leaderboard.loadEntries(for: .global, timeScope: .allTime, range: NSRange(1...5))
+                let playerScope: GKLeaderboard.PlayerScope = showFriendsOnly ? .friendsOnly : .global
+
+                let allPlayers = try await leaderboard.loadEntries(for: playerScope, timeScope: .allTime, range: NSRange(1...5))
                 if allPlayers.1.count > 0 {
                     for leaderboardEntry in allPlayers.1 {
                         do {
@@ -137,13 +146,15 @@ struct ContentView: View {
                             Text("Tap the dog's nose as quickly as you can to play!")
                                 .foregroundColor(.white)
                                 .padding(.top,2)
+                                .font(.system(size: 16))
+                               
                         }
-                        Spacer()
+                      
                         BackgroundPicker(backgroundImage: $backgroundImage, options: backgroundOptions)
                     }
                     .padding()
                     
-                    LeaderBoard(playersList: $playersList,isAuthenticated: $isAuthenticated)
+                    LeaderBoard(playersList: $playersList,isAuthenticated: $isAuthenticated,showFriendsOnly:$showFriendsOnly,toggleFriendsOnly: toggleFriendsOnly)
                     
                     HStack{
                         Image(systemName: "heart.fill")
@@ -169,7 +180,6 @@ struct ContentView: View {
                         
                     }
                     .padding([.leading,.trailing])
-                    
                     
                     Dog(boopCounter: $boopCounter,selectedBreed: $selectedBreed)
                     

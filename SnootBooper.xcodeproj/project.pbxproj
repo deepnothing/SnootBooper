@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		DD6AEEC62B315553009E1A7B /* LeaderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AEEC52B315553009E1A7B /* LeaderBoard.swift */; };
 		DD6AEEC82B355F31009E1A7B /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AEEC72B355F31009E1A7B /* Modal.swift */; };
+		DD6AEECB2B367A8A009E1A7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8C5EC82B10020C001E74BD /* Assets.xcassets */; };
 		DD81DC5E2B23A08400EBF40A /* Dalmatian.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DD81DC5D2B23A08400EBF40A /* Dalmatian.usdz */; };
 		DD8C5EC52B10020A001E74BD /* BoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC42B10020A001E74BD /* BoopApp.swift */; };
 		DD8C5EC72B10020A001E74BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EC62B10020A001E74BD /* ContentView.swift */; };
-		DD8C5EC92B10020C001E74BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8C5EC82B10020C001E74BD /* Assets.xcassets */; };
 		DD8C5ECC2B10020C001E74BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8C5ECB2B10020C001E74BD /* Preview Assets.xcassets */; };
 		DD8C5ED62B10020C001E74BD /* BoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5ED52B10020C001E74BD /* BoopTests.swift */; };
 		DD8C5EE02B10020C001E74BD /* BoopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8C5EDF2B10020C001E74BD /* BoopUITests.swift */; };
@@ -275,7 +275,7 @@
 				DD81DC5E2B23A08400EBF40A /* Dalmatian.usdz in Resources */,
 				DD8C5ECC2B10020C001E74BD /* Preview Assets.xcassets in Resources */,
 				DDD08DB02B2FACD500796A41 /* LaunchScreen.storyboard in Resources */,
-				DD8C5EC92B10020C001E74BD /* Assets.xcassets in Resources */,
+				DD6AEECB2B367A8A009E1A7B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +478,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,6 +513,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (

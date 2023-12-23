@@ -20,7 +20,7 @@ struct Modal: View {
                 Button("OK") {
                     boopCounter = 0
                     showModal = false
-                    timeString = "00:00:000"
+                    timeString = "00:00:00"
                     elapsedTime = 0
                 }
                 .padding()

@@ -4,7 +4,11 @@ import GameKit
 struct LeaderBoard: View {
     @Binding var playersList: [Player]
     @Binding var isAuthenticated: Bool
+    @Binding var showFriendsOnly: Bool
+    var toggleFriendsOnly: () -> Void
     
+    var leaderFontSize: CGFloat = 15
+
     func openSettings() {
         if let url = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -19,8 +23,8 @@ struct LeaderBoard: View {
                     .padding(.leading)
                     .foregroundColor(.white)
                 Spacer()
-                Button("Show Friends"){
-                    
+                Button(showFriendsOnly ? "Show All" : "Show Friends"){
+                    toggleFriendsOnly()
                 }
                 .padding(.trailing)
                 .foregroundColor(.white)
@@ -51,13 +55,13 @@ struct LeaderBoard: View {
                 else {
                     ScrollView(.horizontal, showsIndicators: false)
                     {
-                        HStack(spacing: 10){
+                        HStack(spacing: 0){
                             ForEach(playersList, id: \.self) { item in
                                 HStack{
                                     HStack{
                                         Image(uiImage: item.image!)
                                             .resizable()
-                                            .frame(width: 40, height: 40, alignment: .center)
+                                            .frame(width: 35, height: 35, alignment: .center)
                                             .clipShape(Circle())
                                         VStack(alignment: .leading){
                                             HStack{
@@ -66,8 +70,12 @@ struct LeaderBoard: View {
                                                     .lineLimit(1)
                                                     .foregroundColor(.white)
                                                     .truncationMode(.middle)
+                                                    .font(.system(size: leaderFontSize))
+                                                   
                                                 if playersList.first == item {
                                                     Image(systemName: "crown.fill")
+                                                        .resizable()
+                                                        .frame(width: 20, height: 15, alignment: .center)
                                                         .foregroundColor(.yellow)
                                                 }
                                                 
@@ -76,8 +84,10 @@ struct LeaderBoard: View {
                                                 
                                                 Text(String((Double(item.score.replacingOccurrences(of: ",", with: "")) ?? 100000000000) / 100000000))
                                                     .foregroundColor(.white)
+                                                    .font(.system(size: leaderFontSize))
                                                 Text("Seconds")
                                                     .foregroundColor(.white)
+                                                    .font(.system(size: leaderFontSize))
                                             }
                                         }
                                     }
@@ -87,6 +97,7 @@ struct LeaderBoard: View {
                                 .cornerRadius(10)
                                 .padding()
                                 .shadow(color: Color.black.opacity(0.7), radius: 4, x: 0, y: 2)
+                             
                             }
                         }
                     }
