@@ -149,6 +149,7 @@ struct ContentView: View {
                                 .font(.system(size: 16))
                                
                         }
+                        Spacer()
                       
                         BackgroundPicker(backgroundImage: $backgroundImage, options: backgroundOptions)
                     }
