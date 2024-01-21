@@ -59,6 +59,12 @@ struct LeaderBoard: View {
                             ForEach(playersList, id: \.self) { item in
                                 HStack{
                                     HStack{
+                                        if playersList.first == item {
+                                                Image(systemName: "crown.fill")
+                                                    .resizable()
+                                                    .frame(width: 20, height: 15, alignment: .top)
+                                                    .foregroundColor(.yellow)
+                                        }
                                         Image(uiImage: item.image!)
                                             .resizable()
                                             .frame(width: 35, height: 35, alignment: .center)
@@ -72,12 +78,6 @@ struct LeaderBoard: View {
                                                     .truncationMode(.middle)
                                                     .font(.system(size: leaderFontSize))
                                                    
-                                                if playersList.first == item {
-                                                    Image(systemName: "crown.fill")
-                                                        .resizable()
-                                                        .frame(width: 20, height: 15, alignment: .center)
-                                                        .foregroundColor(.yellow)
-                                                }
                                                 
                                             }
                                             HStack(spacing: 5){

@@ -5,6 +5,7 @@ struct BoopApp: App {
     
     var body: some Scene {
         WindowGroup {
+            
             ContentView()
         }
     }
